@@ -91,8 +91,9 @@ all_cafes = {}  # Dictionary to store cafes in each grid
 
 count = 1
 
-lat_values = [37.7850, 37.7875, 37.7900, 37.7925, 37.7950, 37.7975, 37.8000, 37.8025, 37.8050]
-lng_values = [-122.4150, -122.4125, -122.4100, -122.4075, -122.4050, -122.4025, -122.4000, -122.3975, -122.3950]
+# Used when getting supplimental data 
+#lat_values = [37.7850, 37.7875, 37.7900, 37.7925, 37.7950, 37.7975, 37.8000, 37.8025, 37.8050]
+#lng_values = [-122.4150, -122.4125, -122.4100, -122.4075, -122.4050, -122.4025, -122.4000, -122.3975, -122.3950]
 
 for i, lat in enumerate(lat_values):
     for j, lng in enumerate(lng_values):
@@ -109,7 +110,7 @@ for i, lat in enumerate(lat_values):
         grid_key = f"Grid_{i}_{j}"
         all_cafes[grid_key] = cafes_with_neighborhood
         print(f"Processed {len(cafes_with_neighborhood)} cafes in Grid ({i}, {j})")  # Print statement to indicate cafes processed
-        with open('all_cafes_sup.json', 'w') as outfile:  # Open file in write mode to overwrite history
+        with open('rawdata/all_cafes.json', 'w') as outfile:  # Open file in write mode to overwrite history
             json.dump(all_cafes, outfile, indent=4)
             outfile.write('\n')
         count += 1
